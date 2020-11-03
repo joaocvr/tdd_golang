@@ -8,12 +8,9 @@ import (
 )
 
 func TestMultiplication(t *testing.T) {
-	five := domain.Dollar{}
-	five.Amount = 5
-	ten := five.Times(2)
-	fifteen := five.Times(3)
+	five := domain.NewDollar(5)
 
-	assert.Equal(t, int64(5), five.Amount)
-	assert.Equal(t, int64(10), ten.Amount)
-	assert.Equal(t, int64(15), fifteen.Amount)
+	assert.Equal(t, domain.NewDollar(5), five)
+	assert.Equal(t, domain.NewDollar(10), five.Times(2))
+	assert.Equal(t, domain.NewDollar(15), five.Times(3))
 }
